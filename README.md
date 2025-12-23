@@ -1,8 +1,8 @@
 # Voice-Age-Gender-Detection: End-to-End Deep Learning Pipeline
 
-This project demonstrates the process of building a robust **Age and Gender Classification System** using raw audio data. We utilized **Convolutional Neural Networks (CNNs)** on Mel Spectrograms to treat audio analysis as a computer vision task, achieving high accuracy even on challenging, real-world data.
+This project demonstrates the process of building a robust **Age and Gender Classification System** using raw audio data. We utilized **Convolutional Neural Networks (CNNs)** on Mel Spectrograms to treat audio analysis as a computer vision task, achieving high accuracy even on challenging, real-world data from the [Mozilla Common Voice Dataset](https://datacollective.mozillafoundation.org/datasets/cmflnuzw52mzok78yz6woemc1).
 
-The project implements a **Multi-Task Learning** architecture and explores advanced strategies like **On-the-fly Data Augmentation** and **Class Balancing** to handle the massive 89GB Mozilla Common Voice dataset.
+The project implements a **Multi-Task Learning** architecture and explores advanced strategies like **On-the-fly Data Augmentation** and **Class Balancing** to handle the massive 89GB dataset.
 
 🔴 **Live Demo:** [Click here to try the deployed model on Hugging Face](https://lalu-prakash-voice-age-gender-detector.hf.space/?__theme=system&deep_link=l3n98TGSheo)
 
@@ -16,8 +16,9 @@ The codebase is a comprehensive, technical workflow demonstrating best practices
 
 | Component | Technical Explanation |
 | :--- | :--- |
+| `Mozilla Common Voice` | The source dataset (~89GB) containing diverse speech samples. **[Download Link](https://datacollective.mozillafoundation.org/datasets/cmflnuzw52mzok78yz6woemc1)** |
 | `Librosa` (Spectrogram Generation) | We convert raw `.mp3` audio into **Mel Spectrograms** (visual representations of frequency over time). We use `n_mels=128` and `n_fft=2048` to capture the specific "texture" of human voice timbre, which CNNs are excellent at analyzing. |
-| `Creating_Balanced_Dataset.ipynb` | Addresses the **Extreme Class Imbalance** issue (the dataset is heavily skewed towards males in their 20s). This script downsamples the 89GB dataset to create a balanced subset of 10k-50k samples, ensuring the model doesn't just memorize the majority class. |
+| `Creating_Balanced_Dataset.ipynb` | Addresses the **Extreme Class Imbalance** issue (the dataset is heavily skewed towards males in their 20s). This script downsamples the dataset to create a balanced subset of 10k-50k samples, ensuring the model doesn't just memorize the majority class. |
 | `power_to_db` | Converts the amplitude of the audio to the **Decibel (dB)** scale. This normalization is crucial because human hearing (and voice distinctiveness) is logarithmic, not linear. |
 
 ### **2. Model Configuration (Multi-Task CNN)**
