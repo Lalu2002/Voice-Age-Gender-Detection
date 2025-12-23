@@ -1,0 +1,8 @@
+torch
+torchvision
+torchaudio
+gradio
+librosa
+numpy
+scipy
+soundfile
